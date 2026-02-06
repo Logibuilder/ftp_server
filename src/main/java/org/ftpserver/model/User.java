@@ -1,4 +1,4 @@
-package org.ftpserver;
+package org.ftpserver.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +14,6 @@ public class User {
         password = passwrd;
     }
 
-    private void add(User user) {
-        users.add(user);
-    }
 
 
 }
