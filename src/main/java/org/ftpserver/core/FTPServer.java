@@ -3,6 +3,8 @@ package org.ftpserver.core;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 /**
@@ -12,6 +14,7 @@ import java.net.Socket;
  */
 public class FTPServer {
     private final int port;
+    private final ExecutorService threadPool = Executors.newFixedThreadPool(100);
 
     /**
      * @param port Le port TCP sur lequel le serveur doit écouter.
@@ -31,7 +34,7 @@ public class FTPServer {
                 Socket socket = welcomeSocket.accept();
                 FTPSocket controllerSocket = new FTPSocket(socket);
 
-                new Thread(new Client(controllerSocket)).start();
+                threadPool.execute(new Client(controllerSocket));
             }
         }
     }
