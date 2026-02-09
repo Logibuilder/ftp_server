@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 
 public class DELE implements FTPCommande {
     @Override
-    public void execute(String[] args, Client client) throws IOException {
+    public synchronized void execute(String[] args, Client client) throws IOException {
         if (args.length == 0) {
             client.getControllerSocket().write("501 Erreur syntaxe : DELE nom_fichier");
             return;

@@ -15,7 +15,7 @@ import java.nio.file.StandardCopyOption;
  */
 public class RNTO implements FTPCommande {
     @Override
-    public void execute(String[] args, Client client) throws IOException {
+    public synchronized void execute(String[] args, Client client) throws IOException {
         try {
             if (args.length == 0) {
                 client.getControllerSocket().write("501 Erreur syntaxe : RNFR nom_fichier");

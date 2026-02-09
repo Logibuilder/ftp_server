@@ -8,9 +8,19 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * Implémentation de la commande RMD (Remove Directory).
+ * <p>
+ * Cette commande permet au client de supprimer un répertoire existant sur le serveur.
+ * </p>
+ * <p>
+ * Sécurité : La commande vérifie que le répertoire cible se situe bien à l'intérieur
+ * de la racine du serveur pour empêcher toute suppression accidentelle de fichiers système.
+ * </p>
+ */
 public class RMD implements FTPCommande {
     @Override
-    public void execute(String[] args, Client client) throws IOException {
+    public synchronized void execute(String[] args, Client client) throws IOException {
         if (args.length == 0) {
             client.getControllerSocket().write("501 Erreur syntaxe : STOR nom_fichier");
             return;

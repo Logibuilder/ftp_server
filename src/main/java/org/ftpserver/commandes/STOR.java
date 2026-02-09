@@ -12,13 +12,16 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 /**
- * Implémentation de la commande STOR.
+ * Implémentation de la commande STOR (Store).
+ * <p>
  * Permet au client de téléverser un fichier vers le serveur.
- * Gère la création récursive des répertoires parents si nécessaire avant l'écriture.
+ * Cette commande gère la création récursive des répertoires si le chemin cible
+ * n'existe pas encore sur le serveur.
+ * </p>
  */
 public class STOR implements FTPCommande {
     @Override
-    public void execute(String[] args, Client client) throws IOException {
+    public synchronized void execute(String[] args, Client client) throws IOException {
         if (args.length == 0) {
             client.getControllerSocket().write("550 Erreur syntaxe : STOR nom_fichier");
             return;

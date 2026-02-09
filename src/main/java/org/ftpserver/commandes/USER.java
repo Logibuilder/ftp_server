@@ -3,6 +3,17 @@ package org.ftpserver.commandes;
 import org.ftpserver.core.Client;
 import org.ftpserver.parser.FTPCommande;
 
+/**
+ * Implémentation de la commande USER (User Name).
+ * <p>
+ * Cette commande est généralement la première envoyée par le client après l'établissement
+ * de la connexion. Elle permet d'identifier l'utilisateur qui tente de se connecter.
+ * </p>
+ * <p>
+ * Le serveur répond par un code 331 pour demander le mot de passe associé
+ * (via la commande PASS).
+ * </p>
+ */
 public class USER implements FTPCommande {
 
     @Override

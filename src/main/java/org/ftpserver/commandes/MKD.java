@@ -14,7 +14,7 @@ import java.nio.file.Paths;
  */
 public class MKD implements FTPCommande {
     @Override
-    public void execute(String[] args, Client client) throws IOException {
+    public synchronized void execute(String[] args, Client client) throws IOException {
         if (args.length == 0) {
             client.getControllerSocket().write("501 Syntaxe : MKD <nom_dossier>");
             return;

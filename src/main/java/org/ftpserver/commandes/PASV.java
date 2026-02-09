@@ -10,9 +10,11 @@ import java.net.ServerSocket;
 
 
 /**
- * Implémentation de la commande PASV.
- * Demande au serveur d'écouter sur un port éphémère pour établir une connexion de données.
- * Retourne l'adresse IP et le port formatés .
+ * Implémentation de la commande PASV (Passive Mode).
+ * <p>
+ * Bascule la session en mode passif. Le serveur ouvre un port éphémère et
+ * transmet son adresse IP et le port au client pour établir le futur canal de données.
+ * </p>
  */
 public class PASV implements FTPCommande {
     @Override
