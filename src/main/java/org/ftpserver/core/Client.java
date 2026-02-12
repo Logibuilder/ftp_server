@@ -1,5 +1,6 @@
 package org.ftpserver.core;
 
+import org.ftpserver.model.User;
 import org.ftpserver.parser.CommandeParser;
 import org.ftpserver.parser.FTPCommande;
 import org.ftpserver.parser.FTPRequest;
@@ -90,16 +91,17 @@ public class Client implements Runnable{
                         if (!isAuthenticated() && !request.getCommande().equals("USER") && !request.getCommande().equals("PASS") && !request.getCommande().equals("HELP")) {
                             controllerSocket.write("530 Veuillez vous connecter d'abord.");
                             continue;
+                        } else {
+
+
+                            System.out.println("Commande reçue " + request.getCommande());
+                            ftpCommande.execute(request.getArgs(), this);
+
+                            System.out.println("Commande " + request.getCommande() + " exécutée avec succès");
+
+                            //On vérifie si c'est la commande quite pour casser le while
+                            if (request.getCommande().equals("QUIT")) break;
                         }
-
-
-                        System.out.println("Commande reçue " + request.getCommande());
-                        ftpCommande.execute(request.getArgs(), this);
-
-                        System.out.println("Commande " + request.getCommande() + " exécutée avec succès");
-
-                        //On vérifie si c'est la commande quite pour casser le while
-                        if (request.getCommande().equals("QUIT")) break;
 
                     } catch (Exception e) {
                         controllerSocket.write("500 Erreur interne du serveur.");
@@ -128,7 +130,7 @@ public class Client implements Runnable{
      * @return true si les identifiants sont valides
      */
     public boolean checkPUser(String userName, String password) {
-        return true;
+        return User.isValid(userName, password);
     }
 
 

@@ -1,5 +1,7 @@
 package org.ftpserver.core;
 
+import org.ftpserver.model.User;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -24,6 +26,7 @@ public class FTPServer {
      */
     public FTPServer(int port) {
         this.port = port;
+        User.initUser(); // initialiser la liste des joueurs
     }
 
     /**
