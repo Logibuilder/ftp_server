@@ -17,7 +17,7 @@ import java.util.Map;
  * Implémente {@link Runnable} pour permettre une gestion multi-threadée.
  */
 public class Client implements Runnable{
-
+    /** Le socket gérant le canal de contrôle (commandes texte). */
     FTPSocket controllerSocket;
     FTPSocket dataSocket;
     private String userName;
