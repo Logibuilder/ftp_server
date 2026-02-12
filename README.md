@@ -158,7 +158,6 @@ Le serveur utilise le pattern Command pour traiter les requêtes. Chaque command
 **Avantages :**
 - **Extensibilité** : Ajout de nouvelles commandes sans modification du code existant
 - **Découplage** : La logique métier est isolée de l'orchestration réseau
-- **Testabilité** : Chaque commande peut être testée indépendamment
 ```java
 // Dans la classe Client
 private final Map<String, FTPCommande> commandes = new HashMap<>();
@@ -387,7 +386,7 @@ client.getControllerSocket().write("250 Renommage réussi.");
 **Fonctionnalités manquantes :**
 - Support du mode Actif (PORT) non implémenté - uniquement mode PASV disponible
 - Absence de support TLS/SSL (FTPS) pour le chiffrement des échanges
-- Pas de support IPv6
+- Pas de support IPv6 
 - Commande ABOR (abandon de transfert) non implémentée
 
 **Améliorations possibles :**
