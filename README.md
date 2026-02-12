@@ -348,9 +348,9 @@ client.getControllerSocket().write("250 Renommage réussi.");
 
 ### Dépendances de test
 
-**JUnit Jupiter 5.10.2** : Framework de test principal avec support des annotations modernes (`@BeforeEach`, `@TempDir`, `@ExtendWith`).
+**JUnit Jupiter** : Framework de test principal avec support des annotations modernes (`@BeforeEach`, `@TempDir`, `@ExtendWith`).
 
-**Mockito 5.11.0** : Framework de mock pour simuler les sockets et le système de fichiers. Permet de tester la logique métier sans dépendances réseau réelles.
+**Mockito** : Framework de mock pour simuler les sockets et le système de fichiers. Permet de tester la logique métier sans dépendances réseau réelles.
 ```xml
 <dependency>
     <groupId>org.junit.jupiter</groupId>
