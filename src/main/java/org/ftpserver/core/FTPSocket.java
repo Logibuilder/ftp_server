@@ -87,7 +87,8 @@
             if (writer == null) {
                 throw new IllegalStateException("Writer non initialisé pour ce socket");
             }
-            writer.println(message);
+            writer.print(message + "\r\n");
+            writer.flush();
         }
 
         /**
