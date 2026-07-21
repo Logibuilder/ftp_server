@@ -5,10 +5,9 @@
 **Date :** 12/02/2026
 ## Démonstration vidéo
 
-<video src="src/demo_ftp_server.mkv" controls width="700">
-  Votre navigateur ne supporte pas la lecture vidéo. 
-  Téléchargez la vidéo : [demo_ftp_server.mkv](doc/demo_ftp_server.mkv)
-</video>
+
+
+
 
 
 ## Introduction
