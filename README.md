@@ -1,3 +1,4 @@
+![ftp_server_avatar](doc/ftp_server_avatar.png)
 # Serveur FTP
 
 **Auteur :** Assane Kane  
